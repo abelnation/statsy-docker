@@ -6,12 +6,12 @@ FROM     ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV     SRC_DIR "/usr/local/src"
-ENV     GRAPHITE_DIR "/opt/graphite"
-ENV     GRAFANA_DIR "/opt/grafana"
-ENV     NGINX_CONF_DIR "/etc/nginx"
-ENV     SUPERVISOR_CONF_DIR "/etc/supervisor/conf.d"
-ENV     COLLECTD_CONF_DIR "/etc/collectd"
+ENV     SRC_DIR="/usr/local/src"
+        GRAPHITE_DIR="/opt/graphite"
+        GRAFANA_DIR="/opt/grafana"
+        NGINX_CONF_DIR="/etc/nginx"
+        SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d"
+        COLLECTD_CONF_DIR="/etc/collectd"
 
 # Install all prerequisites
 RUN     apt-get -y install software-properties-common
@@ -63,23 +63,13 @@ RUN     mkdir /src/grafana                                                      
 #   Expose Ports   #
 # ---------------- #
 
-# Grafana
-EXPOSE  80
-
-# statsd
-EXPOSE 8125
-
-# statsd admin
-EXPOSE 8126
-
-# Graphite/text
-EXPOSE 2003
-
-# Graphite/pickle
-EXPOSE 2004
-
-# supervisord http interface
-EXPOSE 9001
+# 80:   Grafana
+# 8125: statsd
+# 8126: statsd admin
+# 2003: Graphite/text
+# 2004: Graphite/pickle
+# 9001: supervisord http interface
+EXPOSE  80 8125 8126 2003 2004 9001
 
 # ----------------- #
 #   Configuration   #
