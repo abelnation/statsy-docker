@@ -6,11 +6,11 @@ FROM     ubuntu:14.04
 
 ENV     DEBIAN_FRONTEND noninteractive
 
-ENV     SRC_DIR="/usr/local/src"
-        GRAPHITE_DIR="/opt/graphite"
-        GRAFANA_DIR="/opt/grafana"
-        NGINX_CONF_DIR="/etc/nginx"
-        SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d"
+ENV     SRC_DIR="/usr/local/src" \
+        GRAPHITE_DIR="/opt/graphite" \
+        GRAFANA_DIR="/opt/grafana" \
+        NGINX_CONF_DIR="/etc/nginx" \
+        SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d" \
         COLLECTD_CONF_DIR="/etc/collectd"
 
 # Install all prerequisites
