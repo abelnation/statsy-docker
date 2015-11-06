@@ -4,7 +4,7 @@ FROM     ubuntu:14.04
 #   Installation   #
 # ---------------- #
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV     DEBIAN_FRONTEND noninteractive
 
 ENV     SRC_DIR="/usr/local/src"
         GRAPHITE_DIR="/opt/graphite"
