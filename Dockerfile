@@ -10,6 +10,7 @@ ENV     SRC_DIR="/usr/local/src" \
         GRAPHITE_DIR="/opt/graphite" \
         GRAFANA_DIR="/opt/grafana" \
         NGINX_CONF_DIR="/etc/nginx" \
+        STATSD_CONF_DIR="/etc/statsd" \
         SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d" \
         COLLECTD_CONF_DIR="/etc/collectd"
 
@@ -99,6 +100,10 @@ ADD     ./grafana/dashboard-loader/dashboard-loader.js ${SRC_DIR}/dashboard-load
 
 # Configure nginx and supervisord
 ADD     ./nginx/nginx.conf ${NGINX_CONF_DIR}/nginx.conf
+ADD     ./supervisord.conf ${SUPERVISOR_CONF_DIR}/supervisord.conf
+
+# Configure statsd
+ADD     ./statsd/config.js ${STATSD_CONF_DIR}/config.js
 ADD     ./supervisord.conf ${SUPERVISOR_CONF_DIR}/supervisord.conf
 
 # Configure collectd
